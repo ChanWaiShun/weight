@@ -4,16 +4,19 @@
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
+    <li><%= link_to 'Recent Change', recent_changes_path %></li>
   <li><%= link_to 'Sponsor', sponsors_path %></li>
     <li><%= link_to 'About Us', about_us_path %></li>
 
 <% end %>
 <% if user_signed_in? %>
-  <li><%= link_to 'Idea', ideas_path %></li>
+    <li><%= link_to 'Recent Change', recent_changes_path %></li>
+  <li><%= link_to 'Ride Offer', ride_offers_path %></li>
   <li><%= link_to 'Friend', friends_path %></li>
   <li><%= link_to 'Profile', profiles_path %></li>
-    <li><%= link_to 'Sponsor', sponsors_path %></li>
-    <li><%= link_to 'About Us', about_us_path %></li>
+  <li><%= link_to 'Forum', forums_path %></li>
+  <li><%= link_to 'Sponsor', sponsors_path %></li>
+  <li><%= link_to 'About Us', about_us_path %></li>
   <% if current_user.try(:admin?) %>
     <li><%= link_to 'Users', users_path %></li>
 <% end %>

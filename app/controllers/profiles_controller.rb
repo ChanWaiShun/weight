@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @profile_contents = @profile.profile_contents.all
+    @profile_content = @profile.profile_contents.build
   end
 
   # GET /profiles/new

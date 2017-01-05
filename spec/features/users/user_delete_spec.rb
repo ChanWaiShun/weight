@@ -8,7 +8,7 @@ Warden.test_mode!
 feature 'User delete', :devise, :js do
 
   after(:each) do
-    Warden.test_reset!
+    Warden.test_reset!Push failed: test2verson2: failed with error: fatal: Could not read from remote repository.
   end
 
   # Scenario: User can delete own account

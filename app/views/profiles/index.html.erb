@@ -4,28 +4,38 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Character:</th>
+    <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    <th>Name:</th>
+    <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    <th>Phone:</th>
+    <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @profiles.each do |profile| %>
+  <% @profiles.each do |profile| %>
       <tr>
         <td><%= profile.image %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= profile.name %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= profile.phone %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>      <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Show', profile %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+        <% if current_user.id===2 %>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Profile', new_profile_path %>
+<%= link_to 'New profile', new_profile_path %>

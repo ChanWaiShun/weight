@@ -1,7 +1,17 @@
-<% content_for :title do %>About<% end %>
-<h3>About the Website</h3>
-<p>
-This web application was created with
-<%= link_to('Rails Composer', 'http://railsapps.github.io/rails-composer/') %>
-from the <%= link_to('RailsApps project', 'http://railsapps.github.io/') %>.
-</p>
+<% content_for :title do %>Account information<% end %>
+<h3>Account information</h3>
+<p id="notice"><%= notice %></p>
+
+
+
+User ID:     <%= current_user.id%><br/>
+User Name:   <%= current_user.name%><br/>
+User Email:  <%= current_user.email%><br/>
+
+
+<br /><br /><br />
+    <% if current_user.id===2 %>
+    <p> You are administrator</p>
+    <p>Number of registered users: <%= User.count %></p>
+    <%end%>
+

@@ -1,2 +1,22 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<div align="middle">
+  <h1>Welcome <br/><br/>
+  We are <font color="red">hitchhiker</font></h1>
+
+</div>
+<%= image_tag("1.jpg") %><br/><br/>
+<center>
+<% if user_signed_in? %>
+    <h2><font color="blue">have a GOOD time!!!</font></h2><br/>
+<% else %>
+
+    <h2><%= link_to 'Sign in', new_user_session_path %></h2>
+    <br />
+
+   <h4><%= link_to 'Dont have a account? Get one NOW!!', new_user_registration_path %></h4>
+<% end %>
+</center>
+<br/><br/><br/>
+
+
+
+

@@ -5,8 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>Brand</th>
+      <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+      <th>Name</th>
+      <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,16 +16,31 @@
   <tbody>
     <% @sponsors.each do |sponsor| %>
       <tr>
-        <td><%= sponsor.name %></td>
         <td><%= sponsor.brand %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+        <td><%= sponsor.name %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+
+        <% if user_signed_in? %>
+            <% if current_user.id===2 %>
         <td><%= link_to 'Show', sponsor %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Edit', edit_sponsor_path(sponsor) %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Destroy', sponsor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? %>
+    <% if current_user.id===2 %>
 <%= link_to 'New Sponsor', new_sponsor_path %>
+    <% end %>
+<% else %>
+<% end %>

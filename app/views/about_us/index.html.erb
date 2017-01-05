@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
       <th>Phone</th>
       <th colspan="3"></th>
     </tr>
@@ -15,10 +16,18 @@
     <% @about_us.each do |about_u| %>
       <tr>
         <td><%= about_u.name %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= about_u.phone %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+        <% if user_signed_in? %>
+            <% if current_user.id===2 %>
         <td><%= link_to 'Show', about_u %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Edit', edit_about_u_path(about_u) %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Destroy', about_u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+  <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +35,8 @@
 
 <br>
 
-<%= link_to 'New About u', new_about_u_path %>
+<% if user_signed_in? %>
+    <% if current_user.id===2 %>
+<%= link_to 'New About us', new_about_u_path %>
+    <% end %>
+<% end %>

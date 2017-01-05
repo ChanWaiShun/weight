@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>User name</th>
+      <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
       <th>Body</th>
+      <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
       <th>Idea</th>
       <th colspan="3"></th>
     </tr>
@@ -16,10 +18,15 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.user_name %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= comment.body %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= comment.idea_id %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Show', comment %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

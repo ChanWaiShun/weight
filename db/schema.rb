@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027041422) do
+ActiveRecord::Schema.define(version: 20170105014228) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "name"
@@ -28,11 +28,27 @@ ActiveRecord::Schema.define(version: 20161027041422) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "forum_comments", force: :cascade do |t|
+    t.string   "user_name"
+    t.text     "body"
+    t.integer  "forum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.text     "topic"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "friends", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "ideas", force: :cascade do |t|
@@ -50,12 +66,55 @@ ActiveRecord::Schema.define(version: 20161027041422) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profile_contents", force: :cascade do |t|
+    t.text     "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "profile_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.text     "image"
     t.text     "name"
     t.text     "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "recent_change_comments", force: :cascade do |t|
+    t.string   "user_name"
+    t.text     "body"
+    t.integer  "recent_change_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "recent_changes", force: :cascade do |t|
+    t.string   "version"
+    t.string   "date"
+    t.text     "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ride_offer_comments", force: :cascade do |t|
+    t.string   "user_name"
+    t.text     "body"
+    t.integer  "ride_offer_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "ride_offers", force: :cascade do |t|
+    t.string   "role"
+    t.string   "source"
+    t.string   "destination"
+    t.string   "date"
+    t.integer  "time"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "sponsors", force: :cascade do |t|

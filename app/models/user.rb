@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :friends
+  has_many :ride_offers
+  has_many :forum
 end
